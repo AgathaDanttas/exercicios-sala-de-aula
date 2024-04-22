@@ -1,0 +1,77 @@
+package aplicacao;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class Programa {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		//PRODUTO
+		Produto produto = new Produto();
+
+        System.out.print("Informe o produto que será cadastrado: ");
+        produto.nome = scan.next();
+
+        System.out.print("Informe a quantidade: ");
+        produto.quantidade = scan.nextInt();
+
+        System.out.print("Informe o preço individual: ");
+        produto.preco = scan.nextDouble();
+        
+        System.out.println("Produto cadastrado!");
+        System.out.println("Produto: " + produto.nome);
+        System.out.println("Estoque atual: " + produto.quantidade);
+        System.out.println("Preço: R$" + produto.preco);
+        System.out.println("");
+        
+        System.out.print("Deseja inserir mais produtos? ");
+        int estoque = scan.nextInt();
+        System.out.println("");
+
+        produto.adicionarProduto(estoque);
+
+        System.out.println("Atualização!");
+        System.out.println("Produto: " + produto.nome);
+        System.out.println("Estoque atual: " + produto.quantidade);
+        System.out.println("Preço: R$" + produto.preco);
+        System.out.println("");
+
+        System.out.print("Atualmente alguma venda foi realizada? ");
+        estoque = scan.nextInt();
+        System.out.println("");
+
+        produto.subtrairProduto(estoque);
+        
+        JOptionPane.showConfirmDialog(null, "Atualização pós venda!\n" + "Produto: " + produto.nome + "\nEstoque Atual: " + produto.quantidade + "\nPreço: " + produto.preco);
+        
+        //CLIENTE
+        Cliente cliente = new Cliente();
+
+        System.out.print("Informe a quantidade de clientes que deseja inserir: ");
+        cliente.quantidade = scan.nextInt();
+        
+        System.out.println("Clientes cadastrados!");
+        System.out.println("Total de clientes cadastrados: " + cliente.quantidade);
+        System.out.println("");
+        
+        System.out.print("Deseja inserir mais clientes? ");
+        int cadastros = scan.nextInt();
+        System.out.println("");
+
+        cliente.adicionarCliente(cadastros);
+
+        System.out.println("Atualização dos clientes!");
+        System.out.println("Total de clientes cadastrados: " + cliente.quantidade);
+        System.out.println("");
+
+        System.out.print("Quantos clientes cancelaram cadastro? ");
+        cadastros = scan.nextInt();
+        System.out.println("");
+
+        cliente.subtrairCliente(cadastros);
+        
+        JOptionPane.showConfirmDialog(null, "Atualização dos clientes: \n" + "Total de clientes cadastrados: " + cliente.quantidade);
+	}
+}
