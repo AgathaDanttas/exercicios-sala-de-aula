@@ -1,0 +1,13 @@
+package aplicacao;
+
+public class Cliente {
+	public int quantidade;
+	
+	public void adicionarCliente (int cadastros) {
+		this.quantidade += cadastros;
+	}
+
+	public void subtrairCliente (int cadastros) {
+		   this.quantidade -= cadastros;
+	}
+}
